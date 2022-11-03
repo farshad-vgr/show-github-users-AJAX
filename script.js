@@ -31,14 +31,14 @@ function loadUsers() {
 
       for (const user of users) {
         const li = document.createElement("li");
-        li.classList.add("card");
+        li.classList.add("card", "fade-item");
         li.setAttribute("draggable", "true");
         li.innerHTML = `
           <div>
             <img src="${user.avatar_url}" draggable="false">
               <section>
                 <h3>User name: ${user.login}</h3>
-                <a href="${user.html_url}" target="_blank">Visit profile on Github!</a>
+                <a href="${user.html_url}" target="_blank" draggable="false">Visit profile on Github!</a>
                 <span>Followers: ${Math.ceil(Math.random() * user.login.length)}K</span>
               </section>
             </div>
@@ -53,11 +53,23 @@ function loadUsers() {
         });
 
         ul.append(li);
+
+        loadingAnimation();
       }
     }
   };
 
   xhr.send();
+}
+
+function loadingAnimation() {
+  const items = document.getElementsByClassName("fade-item");
+
+  for (let i = 0; i < items.length; ++i) {
+    setTimeout(() => {
+      items[i].classList.add("fadein");
+    }, i * 1000);
+  }    
 }
 
 loadUsers();

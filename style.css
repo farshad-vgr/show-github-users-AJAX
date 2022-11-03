@@ -28,6 +28,9 @@ section ul li {
   border-radius: 5px 30px 30px 30px;
   background-color: lightgray;
 }
+section ul li.dragging {
+  opacity: 0.3 !important;
+}
 
 section ul li div {
   display: flex;
@@ -73,6 +76,22 @@ section ul li section span {
   font-size: 16px;
 }
 
-li.dragging {
-  opacity: 0.3;
+/* ------------animation part----------- */
+.fade-item {
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.fadein {
+    animation: fadeIn 1s 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
