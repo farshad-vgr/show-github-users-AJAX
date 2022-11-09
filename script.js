@@ -1,4 +1,21 @@
+const scrollLine = document.getElementById("scroll-line");
+const scrollText = document.querySelector("#scroll-line span");
 const ul = document.getElementById("my-ul");
+
+window.addEventListener("scroll", function () {
+  const windowHeight = window.innerHeight;
+  const fullHeight = document.body.clientHeight;
+  const scrolled = window.scrollY;
+  const percentScrolled = (scrolled / (fullHeight - windowHeight)) * 100;
+
+  scrollLine.style.width = percentScrolled + "%";
+  if (percentScrolled.toFixed(0) >= 5) {
+    scrollText.style.visibility = "visible";
+    scrollText.innerText = percentScrolled.toFixed(0) + " %";
+  } else {
+    scrollText.style.visibility = "hidden";
+  }
+});
 
 ul.addEventListener("dragover", (event) => {
   event.preventDefault();
@@ -69,7 +86,7 @@ function loadingAnimation() {
     setTimeout(() => {
       items[i].classList.add("fadein");
     }, i * 1000);
-  }    
+  }
 }
 
 loadUsers();
