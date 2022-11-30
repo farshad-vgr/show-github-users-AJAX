@@ -11,7 +11,7 @@
   left: 0;
   height: 10px;
   z-index: 1;
-  background-color: blue;
+  background-color: deepskyblue;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -37,6 +37,7 @@ section ul {
 }
 
 section ul li {
+  position: relative;
   width: 70%;
   height: 120px;
   margin: 10px auto;
@@ -44,6 +45,7 @@ section ul li {
   border: 1px solid whitesmoke;
   border-radius: 5px 30px 30px 30px;
   background-color: lightgray;
+  overflow: hidden;
 }
 section ul li.dragging {
   opacity: 0.3 !important;
@@ -71,7 +73,7 @@ section ul li section {
   justify-content: center;
   align-items: flex-start;
   text-align: center;
-  flex-grow: 1;
+  flex-grow: 0.5;
   width: 100px;
   height: 100px;
 }
@@ -91,6 +93,36 @@ section ul li section a {
 section ul li section span {
   padding: 5px;
   font-size: 16px;
+}
+
+section ul li article {
+  padding: 10px;
+  align-self: baseline;
+  text-align: justify;
+  line-height: 1.5rem;
+  width: 60%;
+  height: 100px;
+}
+
+section ul li .delete-icon {
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+  background-color: whitesmoke;
+  border-radius: 0 0 0 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+section ul li .delete-icon:hover {
+  background-color: lightgray;
 }
 
 /* ------------animation part----------- */
